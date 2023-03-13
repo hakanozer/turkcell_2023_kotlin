@@ -5,6 +5,11 @@ fun main(args: Array<String>) {
 
     // dizi oluşturma
     var cities = arrayOf("İstanbul", "Ankara", "Ankara", "İzmir", "İzmir", "Bursa" )
+    var numbers = arrayOf(10,20,30)
+    var anyArr = arrayOf(10, true, 10.5, 'A', "Ali");
+    println(cities)
+    println(numbers)
+    println(anyArr)
 
     // dizi item ulaşım
     println( cities[0] )
@@ -109,6 +114,12 @@ fun main(args: Array<String>) {
     var sumi = calculate(60, 100, ::sumx)
     println( sumi )
 
+    var sizeChar = callChar("Merhaba Istanbul", ::charSize )
+    println( "Total Size : $sizeChar" )
+
+    var intSize = charSize("asdsaa");
+    println(intSize)
+
 }
 
 fun noParams() {
@@ -132,7 +143,11 @@ fun order( str:String, num: Int ): List<Any> {
 }
 
 fun sumx(a: Int, b: Int) = a + b
-
 fun calculate(a: Int, b: Int, operation:(Int, Int) -> Int): Int {
     return operation(a, b)
+}
+
+fun charSize( title:String ) = title.length
+fun callChar(stData: String, operation: (String) -> Int ) : Int {
+    return operation(stData)
 }

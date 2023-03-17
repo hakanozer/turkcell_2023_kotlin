@@ -111,6 +111,33 @@ fun main(args: Array<String>) {
     }
 
     // Set
+    // Benzersiz değerleri kendi içinde toplama özelliği vardır
+    var mutableSet1 = mutableSetOf<String>()
+    mutableSet1.add("Ali")
+    mutableSet1.add("Ali")
+    mutableSet1.add("Ali")
+    mutableSet1.add("Zehra")
+    mutableSet1.add("Ayşe")
+    mutableSet1.add("Mehmet")
+    mutableSet1.add("Ahmet")
+
+    // Remove
+    mutableSet1.remove("Ali")
+
+    // Remove if
+    mutableSet1.removeIf { item -> item.length > 5 }
+    mutableSet1.add("Zehra")
+
+    // Normal
+    mutableSet1.add("Serkan")
+    println( mutableSet1 )
+
+    // sorted
+    var resultSet = mutableSet1.sorted();
+    println( resultSet )
+
+    var resultReverse = resultSet.reversed()
+    println( resultReverse )
 
 
 }

@@ -8,4 +8,9 @@ class C : B("C Title") {
         println( "Send : $send to: $to" )
     }
 
+    override fun create(): String {
+        //return super.create()
+        return "C Product Create"
+    }
+
 }

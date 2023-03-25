@@ -16,5 +16,15 @@ fun main(args: Array<String>) {
 
     val baseA:Base = A(100)
     val baseB:Base = B("New Title")
-    val baseC:Base = C();
+    val baseC:Base = C()
+
+    call(baseA)
+    call(baseB)
+    call(baseC)
+
+}
+
+fun call( base:Base ) {
+    val data = base.create()
+    println( data )
 }

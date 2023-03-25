@@ -4,7 +4,7 @@ class A constructor(_x:Int) : Base(_x) {
         return "A Product Create"
     }
 
-    fun title() : String{
+    fun title() : String {
         return "A Product Title";
     }
 

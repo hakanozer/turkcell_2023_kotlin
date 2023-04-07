@@ -16,6 +16,7 @@
             android:layout_height="wrap_content"
             android:layout_marginTop="30dp"
             android:layout_marginEnd="16dp"
+            android:backgroundTint="@color/purple_700"
             android:text="Goto Settings"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintTop_toTopOf="parent" />
@@ -27,9 +28,23 @@
             android:layout_marginStart="16dp"
             android:layout_marginTop="30dp"
             android:ems="10"
+            android:hint="E-mail"
             android:inputType="textPersonName"
-            android:text="Name"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="parent" />
+
+        <TextView
+            android:id="@+id/txtViewData"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="16dp"
+            android:layout_marginTop="10dp"
+            android:fontFamily="sans-serif-black"
+            android:text="TextView"
+            android:textColor="#3F51B5"
+            android:textSize="20sp"
+            app:layout_constraintEnd_toEndOf="@+id/btnGotoSettings"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/txtData" />
     </androidx.constraintlayout.widget.ConstraintLayout>
 </RelativeLayout>

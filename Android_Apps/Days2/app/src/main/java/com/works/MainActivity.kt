@@ -11,7 +11,7 @@ import androidx.constraintlayout.widget.ConstraintLayout
 class MainActivity : AppCompatActivity() {
 
     lateinit var btnToast: Button
-    lateinit var customToastView: View
+    //lateinit var customToastView: View
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -19,7 +19,7 @@ class MainActivity : AppCompatActivity() {
 
         btnToast = findViewById(R.id.btnToast)
         btnToast.setOnClickListener(btnToastClickListener)
-        customToastView = layoutInflater.inflate(R.layout.custom_toast, null );
+        //customToastView = layoutInflater.inflate(R.layout.custom_toast, null );
 
         //var toast = Toast.makeText(applicationContext, "Toast Title", Toast.LENGTH_SHORT )
         //toast.setGravity(Gravity.LEFT, 200, 200)
@@ -29,10 +29,8 @@ class MainActivity : AppCompatActivity() {
 
     val btnToastClickListener = View.OnClickListener {
         //Toast.makeText(this, "Btn Toast", Toast.LENGTH_LONG).show();
-        var toast = Toast(applicationContext)
-        toast.duration = Toast.LENGTH_LONG
-        toast.view = customToastView
-        toast.show()
+        var toast = CustomToast(this, "Bu bir yeni mesajdır!").createToast();
+        toast.show();
     }
 
 }

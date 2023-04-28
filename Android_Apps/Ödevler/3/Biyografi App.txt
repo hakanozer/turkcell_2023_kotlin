@@ -1,0 +1,10 @@
+Biyografi App
+Tasarımda istediğiniz gibi bir çalışma yapabilirsiniz.
+İstediğiniz bir kütüphaneyi kullanabilirsiniz.
+
+5 Adet button(Sayfa)
+1. Anasayfa (Açılış ekranı, buttonlar)
+2. Hakkımda
+3. Galeri
+4. İletişim
+5. Blog (Tıklanması durumunda bir web sayfasını açacak.)

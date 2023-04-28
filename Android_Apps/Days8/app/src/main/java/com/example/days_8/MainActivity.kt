@@ -13,7 +13,7 @@ class MainActivity : AppCompatActivity() {
         val result = Result()
         val run = Runnable {
             val list = result.news()
-            Log.d("title", list.get(0).title)
+            Log.d("title", list.get(0).href)
         }
         Thread(run).start()
     }

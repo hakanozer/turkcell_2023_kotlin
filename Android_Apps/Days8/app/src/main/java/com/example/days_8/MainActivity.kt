@@ -12,7 +12,8 @@ class MainActivity : AppCompatActivity() {
 
         val result = Result()
         val run = Runnable {
-            result.news()
+            val list = result.news()
+            Log.d("title", list.get(0).title)
         }
         Thread(run).start()
     }

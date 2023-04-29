@@ -20,10 +20,16 @@ class MainActivity : AppCompatActivity() {
         //Thread {
             // xml.xmlCatalog()
         //}.start()
-
+        /*
         val arr = xml.xmlCatalog()
         for ( item in arr ) {
             Log.d("item", item.ZONE)
+        }
+         */
+
+        val arr = xml.xmlCurrency()
+        for( item in arr ) {
+            Log.d("item", item.Isim + " " + item.ForexSelling)
         }
 
     }

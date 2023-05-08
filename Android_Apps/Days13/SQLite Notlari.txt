@@ -1,0 +1,43 @@
+// Sql
+// create table ->tablo oluşturma
+CREATE TABLE "note" (
+	"nid"	INTEGER,
+	"title"	TEXT UNIQUE,
+	"detail"	TEXT,
+	"date"	TEXT,
+	PRIMARY KEY("nid" AUTOINCREMENT)
+);
+
+
+// insert -> Yeni bir veri eklenecek
+INSERT INTO note (title, detail, date) VALUES  ('Okul', 'Veli Toplantısı', '08.05.2023')
+
+
+// delete -> bir satırın silinmesi
+DELETE FROM note WHERE nid = 10
+DELETE FROM note WHERE title = 'Media Manager IV'
+// çoklu delete işlemi
+DELETE FROM note WHERE nid in (11,12,13)
+DELETE FROM note WHERE  nid in (  SELECT nid from note WHERE  title = 'Clinical Specialist'  LIMIT 1  ) 
+
+
+// update -> verinin güncellenmesi
+UPDATE  note SET title = 'Kotlin', detail = 'Android Developer', date = '08.05.2023' WHERE nid = 3
+
+
+// Select -> data getirme
+// Tüm dataları getirme
+SELECT * FROM note
+
+// Belirli bir datanın çağrılması 0,10
+SELECT * FROM note LIMIT 0,10
+
+// Sadece belirli sütunların çağrılması için 
+SELECT title, detail FROM note LIMIT 10,10
+
+// Sütun isimlerini değiştirme
+SELECT title as baslik, detail as detay FROM note
+
+// Arama yaparak arama
+SELECT * FROM note WHERE title like '%sea%' or detail like '%sea%'
+

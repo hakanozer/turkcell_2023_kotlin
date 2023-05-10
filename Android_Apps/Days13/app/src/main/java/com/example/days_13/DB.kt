@@ -1,5 +1,6 @@
 package com.example.days_13
 
+import android.content.ContentValues
 import android.content.Context
 import android.database.sqlite.SQLiteDatabase
 import android.database.sqlite.SQLiteOpenHelper
@@ -7,7 +8,7 @@ import android.database.sqlite.SQLiteOpenHelper
 class DB(context: Context) : SQLiteOpenHelper(context, DBName, null, Version  ) {
 
     companion object {
-        private val DBName = "notes"
+        private val DBName = "notes.db"
         private val Version = 1
     }
 
@@ -28,5 +29,17 @@ class DB(context: Context) : SQLiteOpenHelper(context, DBName, null, Version  ) 
         onCreate(p0)
     }
 
+
+    fun addNote( title:String, detail: String, date: String) : Long {
+        val db = this.writableDatabase
+        val values = ContentValues()
+        values.put("title", title)
+        values.put("detail", detail)
+        values.put("date", date)
+
+        val effectRow = db.insert("note", null, values)
+        db.close()
+        return effectRow
+    }
 
 }

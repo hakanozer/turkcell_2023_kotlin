@@ -11,11 +11,18 @@ import android.os.Bundle
 import android.widget.Button
 import androidx.annotation.RequiresApi
 import androidx.core.app.NotificationCompat
+import java.sql.Time
+import java.util.Calendar
+import java.util.Timer
+import java.util.TimerTask
+import java.util.UUID
 
 class MainActivity : AppCompatActivity() {
 
     lateinit var btnCreateNotification: Button
+    lateinit var timer:Timer
 
+    @RequiresApi(Build.VERSION_CODES.O)
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main)
@@ -24,6 +31,19 @@ class MainActivity : AppCompatActivity() {
         btnCreateNotification.setOnClickListener {
             createNotify("New Title", "New Desc")
         }
+
+        timer = Timer()
+        timer.schedule(task, 10000, 10000 )
+
+    }
+
+    val task = object:TimerTask() {
+        @RequiresApi(Build.VERSION_CODES.O)
+        override fun run() {
+            createNotify(UUID.randomUUID().toString(), "New Desc")
+            timer.cancel()
+        }
+
     }
 
     @RequiresApi(Build.VERSION_CODES.O)
@@ -36,6 +56,9 @@ class MainActivity : AppCompatActivity() {
             .setAutoCancel(true)
             .setPriority(NotificationCompat.PRIORITY_DEFAULT)
 
+        //notification.setWhen(Calendar.getInstance().timeInMillis + 10000)
+        //notification.setShowWhen(true)
+
         val intent = Intent(this, Detail::class.java )
         intent.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP)
         intent.putExtra("id", 100)
@@ -46,7 +69,9 @@ class MainActivity : AppCompatActivity() {
         val channel = NotificationChannel( "userChannel","User Channel",NotificationManager.IMPORTANCE_DEFAULT)
         val manager = getSystemService(Context.NOTIFICATION_SERVICE) as NotificationManager
         manager.createNotificationChannel(channel)
-        manager.notify(10000, notification.build())
+
+        val id = System.currentTimeMillis() + 10000
+        manager.notify(id.toInt(), notification.build())
 
     }
 

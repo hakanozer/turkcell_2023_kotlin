@@ -35,12 +35,12 @@ class One : Fragment() {
         savedInstanceState: Bundle?
     ): View? {
 
-        arguments.let {
-            val data = it?.getString("key1")
-            Log.d("data", data!! )
-        }
+        val bundle = arguments
+        val data = bundle!!.getString("key1")
+        Log.d("data - ", data!!)
+        val view: View = inflater.inflate(R.layout.fragment_one, container, false)
 
-        return inflater.inflate(R.layout.fragment_one, container, false)
+        return view
     }
 
     companion object {

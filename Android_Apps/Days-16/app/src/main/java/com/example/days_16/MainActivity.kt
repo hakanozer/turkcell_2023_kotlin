@@ -16,14 +16,17 @@ class MainActivity : AppCompatActivity() {
         setContentView(R.layout.activity_main)
 
         val one = One()
-        one.arguments?.putString("key1", "data1")
+        val onuBundle = Bundle()
+        onuBundle.putString("key1","sendData1")
+        one.arguments = onuBundle
         changeFragment(one)
 
         btn1 = findViewById(R.id.btn1)
         btn2 = findViewById(R.id.btn2)
         btn3 = findViewById(R.id.btn3)
         btn1.setOnClickListener {
-            one.arguments?.putString("key1", "data1")
+            onuBundle.putString("key1","sendData11")
+            one.arguments = onuBundle
             changeFragment(one)
         }
         btn2.setOnClickListener {

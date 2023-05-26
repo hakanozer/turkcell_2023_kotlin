@@ -27,4 +27,9 @@
         android:name="com.example.days_17.ui.aboutus.Aboutus"
         android:label="@string/menu_aboutus"
         tools:layout="@layout/fragment_aboutus" />
+    <fragment
+        android:id="@+id/nav_profile"
+        android:name="com.example.days_17.ui.profile.ProfileFragment"
+        android:label="fragment_profile"
+        tools:layout="@layout/fragment_profile" />
 </navigation>

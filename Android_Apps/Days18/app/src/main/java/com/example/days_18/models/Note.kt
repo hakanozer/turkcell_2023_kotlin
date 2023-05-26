@@ -9,7 +9,7 @@ data class Note(
 
     @PrimaryKey(autoGenerate = true)
     @ColumnInfo(name = "nid")
-    val nid: Int,
+    val nid: Int?,
 
     val title:String?,
     val detail:String?,

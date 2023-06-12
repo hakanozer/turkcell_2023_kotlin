@@ -12,5 +12,8 @@ class MainActivity : AppCompatActivity() {
         val tinkEncDec = TinkEncDec()
         val cipherText = tinkEncDec.encrypt("123456789")
         Log.d("cipherText", cipherText)
+
+        val plainText = tinkEncDec.decrypt(cipherText)
+        Log.d("plainText", plainText)
     }
 }
